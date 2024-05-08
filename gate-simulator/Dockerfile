@@ -1,4 +1,6 @@
-FROM ubuntu:latest
-LABEL authors="666"
-
-ENTRYPOINT ["top", "-b"]
+FROM node:18-alpine
+WORKDIR /opt/app
+COPY . .
+RUN npm install
+CMD ["npm", "start"]
+EXPOSE 9999
