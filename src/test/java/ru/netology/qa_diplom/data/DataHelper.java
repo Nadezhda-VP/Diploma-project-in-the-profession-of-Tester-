@@ -18,6 +18,69 @@ public class DataHelper {
                 dataGenerator.shiftCvc().getCvc());
     }
 
+    public static CardInformation getCurrentMonthAndYear() {
+        return new CardInformation(
+                cardNumber.getApprovedCardNumber(),
+                dataGenerator.currentYear().getYear(),
+                dataGenerator.currentMonth().getMonth(),
+                dataGenerator.shiftOwner().getOwner(),
+                dataGenerator.shiftCvc().getCvc());
+    }
+
+    public static CardInformation getDeclinedCard() {
+        return new CardInformation(
+                cardNumber.getDeclinedCardNumber(),
+                dataGenerator.shiftYear().getYear(),
+                dataGenerator.shiftMonth().getMonth(),
+                dataGenerator.shiftOwner().getOwner(),
+                dataGenerator.shiftCvc().getCvc());
+    }
+    public static CardInformation getCardNumberEmpty() {
+        return new CardInformation(
+                " ",
+                dataGenerator.shiftYear().getYear(),
+                dataGenerator.shiftMonth().getMonth(),
+                dataGenerator.shiftOwner().getOwner(),
+                dataGenerator.shiftCvc().getCvc());
+    }
+
+    public static CardInformation getYearEmpty() {
+        return new CardInformation(
+                cardNumber.getApprovedCardNumber(),
+                " ",
+                dataGenerator.shiftMonth().getMonth(),
+                dataGenerator.shiftOwner().getOwner(),
+                dataGenerator.shiftCvc().getCvc());
+    }
+
+    public static CardInformation getMonthEmpty() {
+        return new CardInformation(
+                cardNumber.getApprovedCardNumber(),
+                dataGenerator.shiftYear().getYear(),
+                " ",
+                dataGenerator.shiftOwner().getOwner(),
+                dataGenerator.shiftCvc().getCvc());
+    }
+
+    public static CardInformation getHolderEmpty() {
+        return new CardInformation(
+                cardNumber.getApprovedCardNumber(),
+                dataGenerator.shiftYear().getYear(),
+                dataGenerator.shiftMonth().getMonth(),
+                " ",
+                dataGenerator.shiftCvc().getCvc());
+    }
+
+    public static CardInformation getCVVEmpty() {
+        return new CardInformation(
+                cardNumber.getApprovedCardNumber(),
+                dataGenerator.shiftYear().getYear(),
+                dataGenerator.shiftMonth().getMonth(),
+                dataGenerator.shiftOwner().getOwner(),
+                "");
+    }
+
+
     @Value
     public static class CardInformation {
         String cardNumber;

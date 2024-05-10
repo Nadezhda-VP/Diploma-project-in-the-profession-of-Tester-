@@ -46,4 +46,23 @@ public class PaymentPage {
         successNotification.shouldBe(visible, Duration.ofSeconds(15));
     }
 
+    public void verifyErrorWarningCard() {
+        errorWarning.shouldBe(visible, Duration.ofSeconds(15));
+    }
+    public void verifyIncorrectFormatCard() {
+        incorrectFormat.shouldBe(visible);
+    }
+
+    public void verifyRequiredFieldCard() {
+        requiredField.shouldBe(visible);
+    }
+
+    public void expiredCard() {
+        expiredCard.shouldBe(visible);
+    }
+
+    public void verifyIncorrectDateCard() {
+        incorrectDateCard.shouldBe(visible);
+    }
+
 }

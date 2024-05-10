@@ -46,5 +46,21 @@ public class CreditPage {
         successNotification.shouldBe(visible, Duration.ofSeconds(15));
     }
 
+    public void verifyErrorWarningCreditCard() {
+        errorWarning.shouldBe(visible, Duration.ofSeconds(15));
+    }
+    public void verifyIncorrectFormatCreditCard() {
+        incorrectFormat.shouldBe(visible);
+    }
+    public void verifyRequiredFieldCreditCard() {
+        requiredField.shouldBe(visible);
+    }
 
+    public void expiredCreditCard() {
+        expiredCard.shouldBe(visible);
+    }
+
+    public void verifyIncorrectDateCreditCard() {
+        incorrectDateCard.shouldBe(visible);
+    }
 }

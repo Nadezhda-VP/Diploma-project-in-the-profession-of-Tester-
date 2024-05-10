@@ -19,6 +19,10 @@ public class DataGenerator {
         LocalDate newDate = actualData.plusYears(numberOfYearsMonth);
         return new Year(formatterYears.format(newDate));
     }
+    public Year currentYear() {
+        LocalDate newDate = actualData.plusYears(0);
+        return new Year(formatterYears.format(newDate));
+    }
 
     public String wrongYear() {
         return actualData.plusYears(10).format(formatterYears);
@@ -28,14 +32,19 @@ public class DataGenerator {
         LocalDate newDate = actualData.plusMonths(numberOfYearsMonth);
         return new Month(formatterMonth.format(newDate));
     }
+    public Month currentMonth() {
+        LocalDate newDate = actualData.plusMonths(0);
+        return new Month(formatterMonth.format(newDate));
+    }
 
     public Month wrongMonth() {
-        return new Month(Integer.toString(faker.random().nextInt(13,20)));
+        return new Month(Integer.toString(faker.random().nextInt(13, 20)));
     }
 
     public CVC shiftCvc() {
-       return new CVC(Integer.toString(getValidCVC));
+        return new CVC(Integer.toString(getValidCVC));
     }
+
     public Owner shiftOwner() {
         return new Owner(faker.name().fullName());
     }
@@ -54,6 +63,7 @@ public class DataGenerator {
     public static class CVC {
         String cvc;
     }
+
     @Value
     public static class Owner {
         String owner;
