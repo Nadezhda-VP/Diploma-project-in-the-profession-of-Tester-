@@ -27,6 +27,7 @@ public class PaymentPage {
     private final SelenideElement requiredField = $(withText("Поле обязательно для заполнения"));
     private final SelenideElement expiredCard = $(withText("Истёк срок действия карты"));
     private final SelenideElement incorrectDateCard = $(withText("Неверно указан срок действия карты"));
+    private final SelenideElement errorData = $(withText("Ошибка.Допускаются только латинские буквы, пробел и дефис"));
 
     public PaymentPage() {
         SelenideElement heading = $(byText("Оплата по карте"));
@@ -49,6 +50,7 @@ public class PaymentPage {
     public void verifyErrorWarningCard() {
         errorWarning.shouldBe(visible, Duration.ofSeconds(15));
     }
+
     public void verifyIncorrectFormatCard() {
         incorrectFormat.shouldBe(visible);
     }
@@ -63,6 +65,10 @@ public class PaymentPage {
 
     public void verifyIncorrectDateCard() {
         incorrectDateCard.shouldBe(visible);
+    }
+
+    public void verifyErrorWarningFormatDataCard() {
+        errorData.shouldBe(visible);
     }
 
 }

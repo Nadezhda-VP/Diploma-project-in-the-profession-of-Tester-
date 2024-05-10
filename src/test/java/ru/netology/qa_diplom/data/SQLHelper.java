@@ -19,7 +19,7 @@ public class SQLHelper {
         String dbUrl = System.getProperty("db.url");
         String login = System.getProperty("login");
         String password = System.getProperty("password");
-        return DriverManager.getConnection (dbUrl, login, password);
+        return DriverManager.getConnection(dbUrl, login, password);
     }
 
     @SneakyThrows

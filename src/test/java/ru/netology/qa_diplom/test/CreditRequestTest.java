@@ -71,7 +71,7 @@ public class CreditRequestTest {
         var buyCredit = startPage.openBuyCredit();
         var fieldCardEmpty = DataHelper.getCardNumberEmpty();
         buyCredit.enterCreditCardData(fieldCardEmpty);
-        buyCredit.verifyIncorrectFormatCreditCard();
+        buyCredit.verifyRequiredFieldCreditCard();
     }
 
     @DisplayName("Кредит – поле месяца пусто")
@@ -81,7 +81,7 @@ public class CreditRequestTest {
         var buyCredit = startPage.openBuyCredit();
         var fieldMonthEmpty = DataHelper.getMonthEmpty();
         buyCredit.enterCreditCardData(fieldMonthEmpty);
-        buyCredit.verifyIncorrectFormatCreditCard();
+        buyCredit.verifyRequiredFieldCreditCard();
     }
 
     @DisplayName("Кредит — поле года пусто.")
@@ -91,7 +91,7 @@ public class CreditRequestTest {
         var buyCredit = startPage.openBuyCredit();
         var fieldYearEmpty = DataHelper.getYearEmpty();
         buyCredit.enterCreditCardData(fieldYearEmpty);
-        buyCredit.verifyIncorrectFormatCreditCard();
+        buyCredit.verifyRequiredFieldCreditCard();
     }
 
     @DisplayName("Кредит – держатель поля пуст")
@@ -111,6 +111,116 @@ public class CreditRequestTest {
         var buyCredit = startPage.openBuyCredit();
         var fieldCvvEmpty = DataHelper.getCVVEmpty();
         buyCredit.enterCreditCardData(fieldCvvEmpty);
+        buyCredit.verifyRequiredFieldCreditCard();
+    }
+
+    @DisplayName("Кредит - Год истек")
+    @Test
+    public void shouldNotCreditExpiredYear() {
+        var startPage = new StartPage();
+        var buyCredit = startPage.openBuyCredit();
+        var invalidCard = DataHelper.getExpiredYear();
+        buyCredit.enterCreditCardData(invalidCard);
+        buyCredit.expiredCreditCard();
+    }
+
+    @DisplayName("Кредит - Истек месяц")
+    @Test
+    public void shouldNotCreditExpiredMonth() {
+        var startPage = new StartPage();
+        var buyCredit = startPage.openBuyCredit();
+        var invalidCard = DataHelper.getExpiredMonth();
+        buyCredit.enterCreditCardData(invalidCard);
+        buyCredit.expiredCreditCard();
+    }
+
+    @DisplayName("Кредит – неверный месяц.")
+    @Test
+    public void shouldNotCreditWrongMonth() {
+        var startPage = new StartPage();
+        var buyCredit = startPage.openBuyCredit();
+        var invalidCard = DataHelper.getInvalidMonth();
+        buyCredit.enterCreditCardData(invalidCard);
+        buyCredit.verifyIncorrectDateCreditCard();
+    }
+
+    @DisplayName("Кредит – неверный год.")
+    @Test
+    public void shouldNotCreditWrongYear() {
+        var startPage = new StartPage();
+        var buyCredit = startPage.openBuyCredit();
+        var invalidCard = DataHelper.getWrongYear();
+        buyCredit.enterCreditCardData(invalidCard);
+        buyCredit.verifyIncorrectDateCreditCard();
+    }
+
+    @DisplayName("Карта – буквенночисловое имя держателя.")
+    @Test
+    public void shouldNotCreditNumericHolder() {
+        var startPage = new StartPage();
+        var buyCredit = startPage.openBuyCredit();
+        var invalidCard = DataHelper.getInvalidName();
+        buyCredit.enterCreditCardData(invalidCard);
+        buyCredit.verifyErrorWarningFormatDataCreditCard();
+    }
+
+    @DisplayName("Кредит — неверный CVV.")
+    @Test
+    public void shouldNotCreditInvalidCVV() {
+        var startPage = new StartPage();
+        var buyCredit = startPage.openBuyCredit();
+        var invalidCard = DataHelper.getInvalidCVV();
+        buyCredit.enterCreditCardData(invalidCard);
+        buyCredit.verifyIncorrectFormatCreditCard();
+    }
+
+    @DisplayName("Кредит – нулевой номер карты.")
+    @Test
+    public void shouldNotCreditZeroNumber() {
+        var startPage = new StartPage();
+        var buyCredit = startPage.openBuyCredit();
+        var invalidCard = DataHelper.getZeroCard();
+        buyCredit.enterCreditCardData(invalidCard);
+        buyCredit.verifyIncorrectFormatCreditCard();
+    }
+
+    @DisplayName("Кредит-нулевой месяц")
+    @Test
+    public void shouldNotCreditZeroMonth() {
+        var startPage = new StartPage();
+        var buyCredit = startPage.openBuyCredit();
+        var invalidCard = DataHelper.getZeroMonth();
+        buyCredit.enterCreditCardData(invalidCard);
+        buyCredit.verifyIncorrectDateCreditCard();
+    }
+
+    @DisplayName("Кредит – нулевой CVV")
+    @Test
+    public void shouldNotCreditZeroCVV() {
+        var startPage = new StartPage();
+        var buyCredit = startPage.openBuyCredit();
+        var invalidCard = DataHelper.getZeroCVV();
+        buyCredit.enterCreditCardData(invalidCard);
+        buyCredit.verifyIncorrectFormatCreditCard();
+    }
+
+    @DisplayName("Карта – короткий CVV.")
+    @Test
+    public void shouldNotPayIncorrectFormatCVC() {
+        var startPage = new StartPage();
+        var buyCredit = startPage.openBuyCredit();
+        var invalidCard = DataHelper.getInvalidFormatCVV();
+        buyCredit.enterCreditCardData(invalidCard);
+        buyCredit.verifyIncorrectFormatCreditCard();
+    }
+
+    @DisplayName("Карта – Месяц одной цифрой.")
+    @Test
+    public void shouldNotPayIncorrectFormatMonth() {
+        var startPage = new StartPage();
+        var buyCredit = startPage.openBuyCredit();
+        var invalidCard = DataHelper.getInvalidFormatMonth();
+        buyCredit.enterCreditCardData(invalidCard);
         buyCredit.verifyIncorrectFormatCreditCard();
     }
 

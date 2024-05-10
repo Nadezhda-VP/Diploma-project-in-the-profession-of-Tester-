@@ -4,10 +4,12 @@
 
 ## Инструкция по запуску
 
-1.  Для запуска авто-тестов нужно заранее установить и запустить [Docker Desktop](https://github.com/netology-code/aqa-homeworks/blob/master/docker/installation.md) на локальной машине
+1. Для запуска авто-тестов нужно заранее установить и
+   запустить [Docker Desktop](https://github.com/netology-code/aqa-homeworks/blob/master/docker/installation.md) на
+   локальной машине
 
 
-2. Запустить IntelliJ IDEA 
+2. Запустить IntelliJ IDEA
 
 
 3. Склонировать репозиторий командой в консоли:
@@ -17,13 +19,15 @@
 
 ![img.png](img-test-run/img.png)
 
-В поле `URL` вставить ссылку на репозиторий: `https://github.com/Nadezhda-VP/Diploma-project-in-the-profession-of-Tester-.git`
+В поле `URL` вставить ссылку на
+репозиторий: `https://github.com/Nadezhda-VP/Diploma-project-in-the-profession-of-Tester-.git`
 
 ![img_1.png](img-test-run/img_1.png)
 
 Нажать `Clone`
-   
+
 ### Работа с базой данных MySQl.
+
     1. Запуск контейнера docker:  
         docker-compose up
     2. Запуск приложения:  
@@ -38,9 +42,9 @@
        Ctrl+C
     7. Остановить контейнер:
        docker compose down
-    
 
 ### Работа с базой данных Postgres.
+
     1. Запуск контейнера docker:  
        docker-compose up
     2. Запуск приложения:  
