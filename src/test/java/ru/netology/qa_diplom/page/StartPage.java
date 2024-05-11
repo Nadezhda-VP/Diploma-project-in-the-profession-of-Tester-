@@ -15,6 +15,7 @@ public class StartPage {
         SelenideElement heading = $(byText("Путешествие дня"));
         heading.shouldBe(visible);
     }
+
     public PaymentPage openBuyCard() {
         byButton.click();
         return new PaymentPage();
