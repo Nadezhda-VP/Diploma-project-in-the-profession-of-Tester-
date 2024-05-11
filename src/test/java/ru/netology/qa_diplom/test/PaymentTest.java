@@ -230,6 +230,7 @@ public class PaymentTest {
         payCard.enterCardData(invalidCard);
         payCard.verifyIncorrectFormatCard();
     }
+
     @DisplayName("Карта – Короткое или длинное имя держателя.")
     @Test
     public void shouldNotCreditMinMaxNameHolder() {

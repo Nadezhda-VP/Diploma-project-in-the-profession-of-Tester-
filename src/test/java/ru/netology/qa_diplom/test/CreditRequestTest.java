@@ -154,7 +154,7 @@ public class CreditRequestTest {
         buyCredit.verifyIncorrectDateCreditCard();
     }
 
-    @DisplayName("Карта – буквенночисловое имя держателя.")
+    @DisplayName("Кредит – буквенночисловое имя держателя.")
     @Test
     public void shouldNotCreditNumericHolder() {
         var startPage = new StartPage();
@@ -204,7 +204,7 @@ public class CreditRequestTest {
         buyCredit.verifyIncorrectFormatCreditCard();
     }
 
-    @DisplayName("Карта – короткий CVV.")
+    @DisplayName("Кредит – короткий CVV.")
     @Test
     public void shouldNotPayIncorrectFormatCVC() {
         var startPage = new StartPage();
@@ -214,7 +214,7 @@ public class CreditRequestTest {
         buyCredit.verifyIncorrectFormatCreditCard();
     }
 
-    @DisplayName("Карта – Месяц одной цифрой.")
+    @DisplayName("Кредит – Месяц одной цифрой.")
     @Test
     public void shouldNotPayIncorrectFormatMonth() {
         var startPage = new StartPage();
@@ -223,7 +223,8 @@ public class CreditRequestTest {
         buyCredit.enterCreditCardData(invalidCard);
         buyCredit.verifyIncorrectFormatCreditCard();
     }
-    @DisplayName("Карта – Короткое или длинное имя держателя.")
+
+    @DisplayName("Кредит – Короткое или длинное имя держателя.")
     @Test
     public void shouldNotCreditMinMaxNameHolder() {
         var startPage = new StartPage();
