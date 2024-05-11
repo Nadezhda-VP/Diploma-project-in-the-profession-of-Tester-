@@ -17,12 +17,12 @@
 
 Либо воспользоваться интерфейсом *IntelliJ IDEA:*
 
-![img.png](img-test-run/img.png)
+![img.png](img/img.png)
 
 В поле `URL` вставить ссылку на
 репозиторий: `https://github.com/Nadezhda-VP/Diploma-project-in-the-profession-of-Tester-.git`
 
-![img_1.png](img-test-run/img_1.png)
+![img_1.png](img/img_1.png)
 
 Нажать `Clone`
 
