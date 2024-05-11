@@ -230,5 +230,14 @@ public class PaymentTest {
         payCard.enterCardData(invalidCard);
         payCard.verifyIncorrectFormatCard();
     }
+    @DisplayName("Карта – Короткое или длинное имя держателя.")
+    @Test
+    public void shouldNotCreditMinMaxNameHolder() {
+        var startPage = new StartPage();
+        var buyCredit = startPage.openBuyCard();
+        var invalidCard = DataHelper.getInvalidNameFormat();
+        buyCredit.enterCardData(invalidCard);
+        buyCredit.verifyFieldDataOwnerCard();
+    }
 
 }

@@ -179,6 +179,14 @@ public class DataHelper {
                 dataGenerator.shiftOwner().getOwner(),
                 dataGenerator.shiftCvv().getCvv());
     }
+    public static CardInformation getInvalidNameFormat() {
+        return new CardInformation(
+                cardNumber.getApprovedCardNumber(),
+                dataGenerator.shiftYear().getYear(),
+                dataGenerator.shiftMonth().getMonth(),
+                "G",
+                dataGenerator.shiftCvv().getCvv());
+    }
 
 
     @Value

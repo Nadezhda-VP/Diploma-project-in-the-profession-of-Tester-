@@ -38,7 +38,7 @@ public class CreditRequestTest {
         Assertions.assertEquals("APPROVED", statusPayment.getStatus());
     }
 
-    @DisplayName("Кредит - Успешная покупка с текущей датой..")
+    @DisplayName("Кредит - Успешная покупка с текущей датой.")
     @Test
     public void shouldConfirmCreditWithCurrentMonthAndYear() {
         var startPage = new StartPage();
@@ -222,6 +222,15 @@ public class CreditRequestTest {
         var invalidCard = DataHelper.getInvalidFormatMonth();
         buyCredit.enterCreditCardData(invalidCard);
         buyCredit.verifyIncorrectFormatCreditCard();
+    }
+    @DisplayName("Карта – Короткое или длинное имя держателя.")
+    @Test
+    public void shouldNotCreditMinMaxNameHolder() {
+        var startPage = new StartPage();
+        var buyCredit = startPage.openBuyCredit();
+        var invalidCard = DataHelper.getInvalidNameFormat();
+        buyCredit.enterCreditCardData(invalidCard);
+        buyCredit.verifyFieldDataOwnerCreditCard();
     }
 
 }
