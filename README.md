@@ -13,23 +13,24 @@
 
 
 3. Склонировать репозиторий командой в консоли:
-   `git clone https://github.com/Nadezhda-VP/Diploma-project-in-the-profession-of-Tester-.git`
+    `git clone https://github.com/Nadezhda-VP/Diploma-project-in-the-profession-of-Tester-.git`
 
 Либо воспользоваться интерфейсом *IntelliJ IDEA:*
 
 ![img.png](img/img.png)
 
-В поле `URL` вставить ссылку на
-репозиторий: `https://github.com/Nadezhda-VP/Diploma-project-in-the-profession-of-Tester-.git`
+#### В поле `URL` вставить ссылку на репозиторий: 
+     https://github.com/Nadezhda-VP/Diploma-project-in-the-profession-of-Tester-.git
 
 ![img_1.png](img/img_1.png)
 
-Нажать `Clone`
+#### Нажать 
+    Clone
 
 ### Работа с базой данных MySQl.
 
     1. Запуск контейнера docker:  
-        docker-compose up
+       docker-compose up
     2. Запуск приложения:  
        java '-Dspring.datasource.url=jdbc:mysql://localhost:3306/app' -jar ./artifacts/aqa-shop.jar
     3. Запуск тестов:  
