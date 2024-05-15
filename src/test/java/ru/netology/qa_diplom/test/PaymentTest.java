@@ -8,7 +8,6 @@ import ru.netology.qa_diplom.data.DataHelper;
 import ru.netology.qa_diplom.data.SQLHelper;
 import ru.netology.qa_diplom.page.StartPage;
 
-
 import static com.codeborne.selenide.Selenide.open;
 
 public class PaymentTest {
@@ -23,14 +22,16 @@ public class PaymentTest {
         SelenideLogger.removeListener("allure");
     }
 
+    @AfterEach
+    public void cleanBase() {
+        SQLHelper.cleanDatabase();
+    }
+
     @BeforeEach
     void setup() {
         open("http://localhost:8080");
     }
 
-    void startPage() {
-
-    }
 
     @DisplayName("Карта – Удачная покупка.")
     @Test
@@ -42,7 +43,7 @@ public class PaymentTest {
         payCard.verifySuccessNotificationCard();
 
         var statusPayment = SQLHelper.getStatusPayment();
-        Assertions.assertEquals("APPROVED", statusPayment.getStatus());
+        Assertions.assertEquals("APPROVED", statusPayment);
     }
 
     @DisplayName("Карта - Успешная покупка с текущей датой..")
@@ -55,7 +56,7 @@ public class PaymentTest {
         payCard.verifySuccessNotificationCard();
 
         var statusPayment = SQLHelper.getStatusPayment();
-        Assertions.assertEquals("APPROVED", statusPayment.getStatus());
+        Assertions.assertEquals("APPROVED", statusPayment);
     }
 
     @DisplayName("Карта – отклоненная карта")
@@ -68,7 +69,7 @@ public class PaymentTest {
         payCard.verifyErrorWarningCard();
 
         var statusPayment = SQLHelper.getStatusPayment();
-        Assertions.assertEquals("DECLINED", statusPayment.getStatus());
+        Assertions.assertEquals("DECLINED", statusPayment);
     }
 
     @DisplayName("Карта - поле номер карты пустое")

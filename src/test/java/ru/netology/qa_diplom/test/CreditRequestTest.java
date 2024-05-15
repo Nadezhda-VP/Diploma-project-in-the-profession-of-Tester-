@@ -20,6 +20,11 @@ public class CreditRequestTest {
         SelenideLogger.removeListener("allure");
     }
 
+    @AfterEach
+    public void cleanBase() {
+        SQLHelper.cleanDatabase();
+    }
+
     @BeforeEach
     void setup() {
         open("http://localhost:8080");
@@ -35,7 +40,7 @@ public class CreditRequestTest {
         buyCredit.verifySuccessNotificationCreditCard();
 
         var statusPayment = SQLHelper.getStatusCredit();
-        Assertions.assertEquals("APPROVED", statusPayment.getStatus());
+        Assertions.assertEquals("APPROVED", statusPayment);
     }
 
     @DisplayName("Кредит - Успешная покупка с текущей датой.")
@@ -48,7 +53,7 @@ public class CreditRequestTest {
         buyCredit.verifySuccessNotificationCreditCard();
 
         var statusPayment = SQLHelper.getStatusCredit();
-        Assertions.assertEquals("APPROVED", statusPayment.getStatus());
+        Assertions.assertEquals("APPROVED", statusPayment);
     }
 
     @DisplayName("Кредит – отклоненная карта")
@@ -61,7 +66,7 @@ public class CreditRequestTest {
         buyCredit.verifyErrorWarningCreditCard();
 
         var statusPayment = SQLHelper.getStatusCredit();
-        Assertions.assertEquals("DECLINED", statusPayment.getStatus());
+        Assertions.assertEquals("DECLINED", statusPayment);
     }
 
     @DisplayName("Кредит - поле номер карты пустое")

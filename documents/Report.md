@@ -16,7 +16,7 @@
 > неуспешных: 50%
 
 
-![img_2.png](img/img.png)
+![img.png](img/img.png)
 
 ## Общие рекомендации
 
